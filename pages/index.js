@@ -1,23 +1,23 @@
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-// import { useMoralis, useWeb3Contract } from "react-moralis";
-import Query from "../components/contractFunctions/query";
-// import { ADDRESS, ABI } from "../utils/contractData";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import Query from "../components/contractFunctions/Query";
+import Update from "../components/contractFunctions/Update";
+import { ADDRESS, ABI } from "../utils/contractData";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
-  // const { enableWeb3, isWeb3Enabled } = useMoralis();
+  const { enableWeb3, isWeb3Enabled } = useMoralis();
 
-  // const enableWeb3AndRun = () => {
-  //   enableWeb3();
-  //   if (isWeb3Enabled) {
-  //     queryFunction();
-
-  //   } else {
-  //     console.log("something happened whit moralis web3 stuff");
-  //   }
-  // };
+  const enableWeb3AndRun = () => {
+    enableWeb3();
+    if (isWeb3Enabled) {
+      queryFunction();
+    } else {
+      console.log("something happened whit moralis web3 stuff");
+    }
+  };
 
   return (
     <div>
@@ -29,12 +29,11 @@ export default function Home() {
 
       <div className={styles.border}>
         <h1>Connect me whit this cool app</h1>
+        <button onClick={enableWeb3AndRun}></button>
 
-        {/* <p>{`is web3 enabled?: ${isWeb3Enabled}`}</p>
-        <button id="dirty-fix" onClick={enableWeb3}>
-          Enable it
-        </button> */}
+        <p>{`is web3 enabled?: ${isWeb3Enabled}`}</p>
         <Query />
+        <Update/>
       </div>
     </div>
   );

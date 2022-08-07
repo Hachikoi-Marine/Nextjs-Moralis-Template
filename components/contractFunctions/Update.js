@@ -14,9 +14,9 @@ export default function Update() {
     });
 
   return (
-    <div className="query">
+    <div className="update">
       <button disabled={isFetching} onClick={runContractFunction}>
-        Click me to query
+        Click me to set 1998
       </button>
     </div>
   );
